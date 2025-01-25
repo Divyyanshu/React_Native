@@ -1,45 +1,64 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 const App = () => {
+  const [enterGoalsText, setEnterGoalText] = useState('');
+  const [listDatas, setListData] = useState([])
+  function handleChange(enterText) {
+    setEnterGoalText(enterText)
+    console.log(enterText)
+  }
+  // list showing
+  function handleClick() {
+    setListData((currentlistData) => [...currentlistData, enterGoalsText])
+    console.log(enterGoalsText)
+  }
   return (
-    <View style={{ padding: "50", flexDirection: "column" , justifyContent : "space-around" , }}>
-      <View style={styles.textContainer1}>
-        <Text style={{ fontSize: 50 }}>1</Text>
-      </View>
-      <View style={styles.textContainer2}>
-        <Text style={{ fontSize: 50 }}>2</Text>
-      </View>
-      <View style={styles.textContainer3}>
-        <Text style={{ fontSize: 50 }}>3</Text>
-      </View>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.appContainer}>
+          <Text style={{ fontSize: 35, margin: "auto", paddingBottom: 50, fontWeight: 900, color: "#d52583", fontFamily: "" }}>Task Adder-Deleter</Text>
+          <View style={styles.inputContainer} >
+            <TextInput placeholder='Enter your Goals' style={styles.TextInput} onChangeText={handleChange} />
+            <Button title='Add Goal' color={"#d52583"} onPress={handleClick} />
+          </View>
+          <View style={styles.goalContainer}>
+            {listDatas?.map((listData, index) => <Text style={{ fontWeight: 800, fontSize: 18 }}>{`${index} . ${listData}`}</Text>)}
+          </View>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
 export default App
 
 const styles = StyleSheet.create({
-  textContainer1: {
-    backgroundColor: "red",
-    fontSize: 50,
-    // width: 200,
-    // height: 200,
-    justifyContent: "center",
-    alignItems: "center"
+  appContainer: {
+    paddingHorizontal: 20,
   },
-  textContainer2: {
-    backgroundColor: "green",
-    // width: 200,
-    // height: 200,
-    justifyContent: "center",
-    alignItems: "center"
+  container: {
+    flex: 1,
+    paddingTop: 30
   },
-  textContainer3: {
-    backgroundColor: "blue",
-    // width: 200,
-    // height: 200,
-    justifyContent: "center",
-    alignItems: "center"
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    borderColor: "#cccccc",
+    alignItems: "center",
+    paddingBottom: 30,
+    borderBottomWidth: 1,
+  },
+  TextInput: {
+    padding: 10,
+    paddingRight: 20,
+    borderWidth: 1,
+    width: '70%',
+    marginRight: "10",
+    borderRadius: 5,
+  },
+  goalContainer: {
+    paddingTop: "30",
   }
 })

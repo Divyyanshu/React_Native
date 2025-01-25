@@ -144,3 +144,60 @@ const styles = StyleSheet.create({
 ----------------------------------------------------------------------------------------------------
 Day 3
 
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+
+const App = () => {
+  return (
+    <View
+      style={{
+        padding: "50",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems : "center",
+        gap: 18,
+        width: "200",
+        height: 300,
+      }}
+    >
+      <View style={styles.textContainer1}>
+        <Text>1</Text>
+      </View>
+      <View style={styles.textContainer2}>
+        <Text>2</Text>
+      </View>
+      <View style={styles.textContainer3}>
+        <Text>3</Text>
+      </View>
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  textContainer1: {
+    backgroundColor: "red",
+    flex:1,
+    // width: 200,
+    // height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textContainer2: {
+    backgroundColor: "green",
+    flex:1,
+    // width: 200,
+    // height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textContainer3: {
+    backgroundColor: "blue",
+    // width: 200,
+    // height: 200,
+    justifyContent: "center",
+    flex:1,
+    alignItems: "center",
+  },
+});
