@@ -1,0 +1,146 @@
+Day 2
+
+import React, { useRef, useEffect } from 'react';
+import { Animated, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+
+export default function App() {
+  // Create an animated value for the airplane's horizontal position
+  const airplanePosition = useRef(new Animated.Value(-200)).current;
+
+  useEffect(() => {
+    // Start the animation
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(airplanePosition, {
+          toValue: 400, // Final horizontal position
+          duration: 4000, // Duration of the animation (in milliseconds)
+          useNativeDriver: true, // Optimize performance with native driver
+        }),
+        Animated.timing(airplanePosition, {
+          toValue: -200, // Reset to initial position
+          duration: 0, // Instantly reset
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, [airplanePosition]);
+
+  return (
+    <View style={styles.container}>
+      {/* Animating the airplane icon */}
+      <Animated.Text
+        style={[
+          styles.locationtext,
+          { transform: [{ translateX: airplanePosition }] },
+        ]}
+      >
+        ᯓ ✈︎
+      </Animated.Text>
+      <StatusBar />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  locationtext: {
+    fontSize: 100,
+    fontWeight: '900',
+    margin: 10,
+    color: 'white',
+  },
+});
+
+
+
+
+---------------------------------------------------------------------------------------
+daksh splash screen code
+
+import React from 'react';
+import { View, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Image source={require('./assets/logo_splash_daksh.png')} style={styles.logo} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F26B35',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  locationtext: {
+    fontSize: 50,
+    fontWeight: '900',
+    margin: 10,
+    color: 'white',
+  },
+  logo: {
+    width: 200, // Logo width
+    height: 200, // Logo height
+    resizeMode: 'contain', // Adjust the logo to fit within the container
+  },
+});
+
+
+
+---------------------------------------------------------------------------------------------------
+DAY 2
+
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import React from 'react'
+
+const App = () => {
+  return (
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer} >
+        <TextInput placeholder='Enter your Goals' style={styles.TextInout} />
+        <Button title='Add Goal' style={styles.button} />
+      </View>
+      <View>
+        <Text>List OF Goals...!</Text>
+      </View>
+    </View>
+  )
+}
+
+export default App
+
+const styles = StyleSheet.create({
+  appContainer: {
+    padding: 50,
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center"
+  },
+  inputContainer: {
+    flexDirection : "row",
+    justifyContent : "space-around",
+    borderColor : "#cccccc"
+  },
+  TextInout: {
+    padding:10,
+    paddingRight:20,
+    borderWidth: 1,
+    width : '80%',
+    marginRight: "10"
+  }
+})
+
+----------------------------------------------------------------------------------------------------
+Day 3
+
