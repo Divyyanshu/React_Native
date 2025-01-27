@@ -5,7 +5,6 @@ import {
   Text,
   View,
   FlatList,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -47,12 +46,11 @@ const App = () => {
               margin: "auto",
               paddingBottom: 50,
               fontWeight: "900",
-              color: "#323232",
+              color: "white",
             }}
           >
             TRACK YOUR GOALS
           </Text>
-          {/* <Button title="Add the Goals" color="#041949" onPress={ModelClicker} /> */}
           <TouchableOpacity style={styles.button} onPress={ModelClicker}>
             <Text style={styles.buttonText}>Add New Goals</Text>
           </TouchableOpacity>
@@ -64,7 +62,6 @@ const App = () => {
             />
           )}
           <View style={styles.goalContainer}>
-            {/* using flat list the alternative of scrollview and map() function key pair  */}
             <FlatList
               data={listDatas}
               renderItem={(itemData) => {
@@ -97,6 +94,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 30,
+    backgroundColor: "#311b6b",
   },
   goalContainer: {
     paddingTop: "30",
