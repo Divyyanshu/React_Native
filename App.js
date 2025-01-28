@@ -28,7 +28,7 @@ const App = () => {
   }
   function cancelGoalHandler() {
     setModelIsVisible(false);
-    console.log("can");
+    console.log("cancel");
   }
 
   function deleteGoalHandle(id) {
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 30,
-    backgroundColor: "#311b6b",
   },
   goalContainer: {
     paddingTop: "30",

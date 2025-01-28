@@ -4,7 +4,8 @@
     "slug": "RNFirst",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "../assets/images/icon.png",
+    "backgroundColor": "#311b6b",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -19,10 +20,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.divyanshu_tailor.RNFirst"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "764d4cd6-2a5a-4281-822a-96c385f879d3"
+      }
     }
   }
 }

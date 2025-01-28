@@ -25,10 +25,10 @@ const GoalInput = (props) => {
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.modelContainer}>
-      <Image
-        style={styles.ballImage}
-        source={require("../assets/images/ball.png")}
-      />
+        <Image
+          style={styles.ballImage}
+          source={require("../assets/images/ball.png")}
+        />
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Your Goals Enter Here !"
@@ -37,11 +37,11 @@ const GoalInput = (props) => {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={addGoalHandler}>
-            <Text style={styles.buttonText}>Add Goals</Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={props.onCancel}>
-            <Text style={styles.buttonText}>Cancel</Text>
+            <Text style={styles.buttonTextCancel}>Cancel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={addGoalHandler}>
+            <Text style={styles.buttonTextAdd}>Add Goals</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -56,14 +56,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor : "#311b6b"
+    backgroundColor: "#311b6b",
   },
   ballImage: {
     width: 300,
     height: 250,
-    marginRight : 150,
-    marginBottom : 50,
-    justifyContent : "center",
+    marginRight: 150,
+    marginBottom: 50,
+    justifyContent: "center",
     alignItems: "center",
   },
   inputContainer: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderColor: "white",
-backgroundColor:"white",
+    backgroundColor: "white",
     fontSize: 16,
     borderWidth: 1,
     width: "70%",
@@ -90,13 +90,23 @@ backgroundColor:"white",
     gap: 20,
     flexDirection: "row",
   },
-  buttonText: {
+  buttonTextAdd: {
     color: "white",
     paddingVertical: 10,
     paddingHorizontal: 18,
     borderRadius: 10,
     fontSize: 16,
     backgroundColor: "#041949",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  buttonTextCancel: {
+    color: "white",
+    paddingVertical: 10,
+    paddingHorizontal: 18,
+    borderRadius: 10,
+    fontSize: 16,
+    backgroundColor: "#F95454",
     fontWeight: "bold",
     textAlign: "center",
   },
